@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.sidebar_opacity{
+    z-index: 9999 !important;
+}
+.imgnegative{
+    z-index: -9999 !important;
+    position: static;
+}
+.activelink{
+    background-color: aqua;
+    padding:10px;
+}
