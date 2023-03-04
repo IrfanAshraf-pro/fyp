@@ -2,9 +2,9 @@ import React from 'react'
 
 const CoursesRow = () => {
   return (
-    <div className='p-2 px-5 rounded-sm flex items-center justify-between bg-gray-400'>
-        <p className='text-xl text-primary'>PF</p>
-        <button className="btn btn-xs sm:btn-sm md:btn-md ">
+    <div className='p-2 px-5 bg-gray-400 d-flex justify-content-between align-items-center rounded-4'>
+        <p className='-mb-[1px] text-xl text-white'>PF</p>
+        <button className="btn btn-primary rounded-4 ">
             match
         </button>
     </div>

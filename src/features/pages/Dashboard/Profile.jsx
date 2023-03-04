@@ -11,9 +11,9 @@ const Profile = () => {
       {/* heading */}
      <PageHeader>Profile</PageHeader>
       {/* Avatar div */}
-      <div className="w-48 rounded-full ">
-        <div className="rounded-full ">
-          <img src={PP} alt="user avatar" className='rounded-full imgnegative'/>
+      <div className="w-48 rounded-full">
+        <div className="rounded-circle ">
+          <img src={PP} alt="user avatar" className=' rounded-circle imgnegative'/>
         </div>
       </div>
       <div className="relative p-2">
@@ -24,8 +24,8 @@ const Profile = () => {
       {/* Avatar name and email div */}
       <div className="flex items-center justify-between w-11/12 p-2 bg-gray-700 rounded-lg sm:w-3/4 md:w-2/4">
         <div className="">
-          <p className="text-lg uppercase text-primary">Name</p>
-          <p className="text-sm text-primary ">email@gmail.com</p>
+          <p className="text-lg text-white uppercase">Name</p>
+          <p className="text-sm text-white ">email@gmail.com</p>
         </div>
         <button className="btn btn-square ">
         <img src={Edit} alt='edit icon' className="inline-block w-6 h-6 stroke-current" />

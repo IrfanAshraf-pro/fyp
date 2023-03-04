@@ -2,10 +2,10 @@ import React from 'react'
 
 const LearningRow = ({isDisabled,name,course}) => {
   return (
-    <div className='p-2 px-5 rounded-sm flex items-center justify-between bg-gray-400'>
-        <p className='text-xl  text-primary w-4/12'>{name}</p>
-        <p className='text-xl text-primary w-4/12'>{course}</p>
-        <button className="btn btn-xs sm:btn-sm md:btn-md " disabled={isDisabled}>
+    <div className='flex items-center justify-between p-2 px-5 bg-gray-400 rounded-sm'>
+        <p className='w-4/12 text-xl text-white -mb-[1px]'>{name}</p>
+        <p className='w-4/12 text-xl text-white -mb-[1px]'>{course}</p>
+        <button className="text-black btn btn-outline-light " disabled={isDisabled}>
             Rate
         </button>
     </div>

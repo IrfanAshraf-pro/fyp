@@ -11,7 +11,7 @@ const ScheduleComponent = () => {
   const [schedule, setSchedulee] = useState(
     SplitingSchedule(schedules.schedule)
   );
-  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "All"];
+  const days = ["Mon", "Tue", "Wed", "Thu", "Frid", "Sat", "Sun", "All"];
   const timeslots = [
     {
       time: "08:00-9:00",
@@ -109,27 +109,26 @@ const ScheduleComponent = () => {
   // }, [schedules])
   const slots = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   return (
-    <div className="flex p-2 rounded-lg ">
-      <div className="w-3/12 pl-1 pt-10 bg-main rounded-tl-lg lg:pt-[44px]">
+    <div className="flex p-2 mt-2 rounded-lg bg-main" >
+      <div className="w-[25%] pl-1 pt-14  rounded-tl-lg lg:pt-[60px]" style={{height:'100px'}}>
         {timeslots.map((slot, index) => (
-          <div className="flex bg-main text-primary " key={index}>
-            <p className="text-base xl:w-7/12 lg:text-xl">{slot.time}</p>
-            <p className="text-base xl:w-5/12 lg:text-xl">{slot.stamp}</p>
+          <div className="flex text-white bg-main " style={{height:'28px'}} key={index}>
+            <p className="text-base xl:w-7/12 lg:text-xl" style={{fontSize:'14px'}}>{slot.time}</p>
+            <p className="text-base xl:w-5/12 lg:text-xl" style={{fontSize:'14px'}}>{slot.stamp}</p>
           </div>
         ))}
       </div>
       <div className="w-9/12 bg-gray-400 rounded-tr-lg">
-        <div className="flex justify-between px-2 py-2 rounded-tr-lg bg-main">
+        <div className="flex justify-between px-1 py-2 rounded-tr-lg align-center bg-main">
           {days.map((day, index) => (
             <p
-              className="text-base  font-bold text-primary w-[10%] lg:text-xl"
-              key={index}
+              className={`text-base font-bold text-white w-[10%] lg:text-xl `}
             >
               {day}
             </p>
           ))}
         </div>
-        <div className="flex flex-col px-2 lg:gap-[4.1px]">
+        <div className="flex flex-col px-2 gap-[4.2px] lg:gap-[4.1px]">
           {slots.map((slot, index) => (
             <div key={index}>
               <ScheduleRow
