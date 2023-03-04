@@ -3,10 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { openDrawer, closeDrawer } from "../../../app/Slices/drawerSlice";
 import { AdminTabs, Studenttabs, Tutortabs } from "./tabs";
-import { Button, Offcanvas, OffcanvasBody, OffcanvasHeader } from "reactstrap";
 const Drawer = () => {
   const [tabs, setTabs] = useState([]);
-  const [offcanvas, setOffcanvas] = useState(false);
   const { isOpen } = useSelector((state) => state.drawer);
   const { role } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -20,8 +18,6 @@ const Drawer = () => {
   const closebar = () => {
     dispatch(closeDrawer());
   };
-  const dropDown = () => {};
-  const toggle = () => !offcanvas;
   return (
     <>
       <div
@@ -55,7 +51,7 @@ const Drawer = () => {
                   to={tab.route}
                   end
                 >
-                  <i className="bi bi-house-door-fill"></i>
+                  <i className="text-white bi bi-house-door-fill"></i>
                   <span className="text-[15px] text-decoration-none ml-4 text-gray-200">
                     {tab.name}
                   </span>
@@ -70,7 +66,7 @@ const Drawer = () => {
                   key={index}
                   to={tab.route}
                 >
-                  <i className="bi bi-house-door-fill"></i>
+                  <i className="text-white bi bi-house-door-fill"></i>
                   <span className="text-[15px]  ml-4 text-gray-200">
                     {tab.name}
                   </span>
@@ -82,7 +78,7 @@ const Drawer = () => {
               className="p-2.5 mt-2 flex items-center text-decoration-none rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-500"
               to="/"
             >
-              <i className="bi bi-house-door-fill"></i>
+              <i className="text-white bi bi-house-door-fill"></i>
               <span className="text-[15px] ml-4 text-gray-200">Logout</span>
             </NavLink>
           </div>

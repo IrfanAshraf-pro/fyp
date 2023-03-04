@@ -1,6 +1,6 @@
 import React from "react";
 
-const PageHeader = ({ children, icon='+',onClick }) => {
+const PageHeader = ({ children, icon='',onClick }) => {
   return (
     <div className="flex items-center w-full p-2 py-3 bg-gray-700">
       <h1
@@ -10,7 +10,7 @@ const PageHeader = ({ children, icon='+',onClick }) => {
       >
         {children}
       </h1>
-      {icon && (
+      {(icon && icon!='')  && (
         <div className="flex items-center justify-center w-1/12 text-center ">
           <button className="text-bg-light rounded-circle btn btn-circle" onClick={onClick}>
             {icon}

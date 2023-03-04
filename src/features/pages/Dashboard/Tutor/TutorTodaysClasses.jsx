@@ -7,10 +7,10 @@ const TutorTodaysClasses = () => {
     <div>
       <PageHeader>Todays's Schedule</PageHeader>
       <div className="flex flex-col items-center justify-center">
-        <div className="p-4 px-6  mt-8 rounded-sm flex items-center justify-between  w-11/12 md:w-[82%] bg-gray-500">
-          <p className="font-bold text-xl text-primary w-[30%] ">Course Name</p>
-          <p className="w-4/12 text-xl font-bold text-primary">Student Name</p>
-          <p className="w-4/12 text-xl font-bold text-primary">Class Time</p>
+        <div className="p-4 px-6  mt-8 rounded-3 flex items-center justify-between  w-11/12 md:w-[82%] bg-gray-500">
+          <p className="font-bold text-xl text-white w-[30%] ">Course Name</p>
+          <p className="w-4/12 text-xl font-bold text-white">Student Name</p>
+          <p className="w-4/12 text-xl font-bold text-white">Class Time</p>
           <p className="w-3/12 text-xl font-bold bg-green-700 text-primary"></p>
         </div>
         <div className="p-2 flex flex-col gap-2 w-11/12 md:w-[82%]">
