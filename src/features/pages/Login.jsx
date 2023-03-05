@@ -14,7 +14,7 @@ const Login = () => {
 
   const handleLogin = () => {
     const response=LoginStudent(email,password)
-    dispatch(setRole({ item: "Student" }));
+    dispatch(setRole({ item: "Tutor" }));
     console.log('response is ',response);
     // & response[2]===false
     if(response[2]===null ){
