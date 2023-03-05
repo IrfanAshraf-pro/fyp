@@ -4,9 +4,7 @@ import ScheduleCheckBox from "./ScheduleCheckBox";
 const ScheduleRow = ({ schedule, setSchedule }) => {
   const [srow, setSrow] = useState(schedule);
   const [all, setAll] = useState("0");
-  const setSchedulee = (schedulee) => {
-    setSchedule(schedulee);
-  };
+
   const setAllValues = (value) => {
     let row = srow;
     let ssrow = row.schedule;
@@ -15,17 +13,8 @@ const ScheduleRow = ({ schedule, setSchedule }) => {
     }
     setAll(all === "0" ? "1" : "0");
     setSrow({ ...srow, schedule: ssrow });
+    console.log('setting full row',ssrow);
   };
-  useEffect(() => {
-    //rerender component
-    setSchedulee(srow)
-    console.log('inside useEffect of row all');
-  }, [all]);
-  useEffect(() => {
-    setSchedulee(srow)
-    console.log('inside useEffect of row srow or each row');
-  }, [srow]);
-
   const setRow = (value, key) => {
     let row = srow;
     let ssrow = row.schedule;
@@ -35,7 +24,17 @@ const ScheduleRow = ({ schedule, setSchedule }) => {
       }
     }
     setSrow({ ...srow, schedule: ssrow });
+    console.log('setting single item is ',ssrow);
   };
+  const setSchedulee = (schedulee) => {
+    setSchedule(schedulee);
+  };
+  useEffect(() => {
+    setSchedulee(srow)
+    console.log('inside useEffect of row srow or each row');
+  }, [srow]);
+
+
   const iteratingOverRow = () => {
     const arr = [];
     for (const key in srow.schedule) {

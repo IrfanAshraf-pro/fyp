@@ -83,19 +83,26 @@ const ScheduleComponent = () => {
       return item.row === schedules.row ? schedules : item;
     });
     const newScheduleCombined = JoiningSchedule(newSchedule)
-    console.log('new combined schedule is ',newScheduleCombined);
-    setSchedulee( SplitingSchedule(newScheduleCombined));
-    console.log('combined schedule after any update is ', newScheduleCombined);
-    dispatch(setSchedule({ schedule: newScheduleCombined }))
+    console.log('new Schedule is ',newSchedule);
+    console.log('after joining schedule is ',newScheduleCombined);
+    dispatch(setSchedule({schedule:newScheduleCombined}))
+    // console.log('new combined schedule is ',newScheduleCombined);
+    // setSchedulee( SplitingSchedule(newScheduleCombined));
+    // console.log('combined schedule after any update is ', newScheduleCombined);
+    // dispatch(setSchedule({ schedule: newScheduleCombined }))
     // combiningSchedule()
   };
-  const combiningSchedule = () => {
-    console.log('inside combining schedule', schedule);
-    const newSchedule = JoiningSchedule(schedule)
-    console.log('new combined schedule is ', newSchedule);
-    // // setSchedulee(SplitingSchedule(newSchedule.schedule))
-    dispatch(setSchedule({ schedule: newSchedule }))
-  }
+
+
+  // const combiningSchedule = () => {
+  //   console.log('inside combining schedule', schedule);
+  //   const newSchedule = JoiningSchedule(schedule)
+  //   console.log('new combined schedule is ', newSchedule);
+  //   // // setSchedulee(SplitingSchedule(newSchedule.schedule))
+  //   dispatch(setSchedule({ schedule: newSchedule }))
+  // }
+
+
   //   useEffect(()=>{
   // combiningSchedule()
   //   },[schedule])
@@ -107,6 +114,10 @@ const ScheduleComponent = () => {
   //   );
   //   //chaning the state
   // }, [schedules])
+  const checkingIfAllTrue=(schedulee)=>{
+    console.log(schedulee);
+    let sc=schedulee.schedule
+  }
   const slots = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   return (
     <div className="flex p-2 mt-2 rounded-lg bg-main" >
@@ -121,7 +132,7 @@ const ScheduleComponent = () => {
       <div className="w-9/12 bg-gray-400 rounded-tr-lg">
         <div className="flex justify-between px-1 py-2 rounded-tr-lg align-center bg-main">
           {days.map((day, index) => (
-            <p
+            <p key={index}
               className={`text-base font-bold text-white w-[10%] lg:text-xl `}
             >
               {day}
@@ -134,6 +145,7 @@ const ScheduleComponent = () => {
               <ScheduleRow
                 schedule={schedule[index]}
                 setSchedule={SetSchedules}
+                // isAllTrue={checkingIfAllTrue(schedule[index])}
               />
             </div>
           ))}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const ScheduleCheckBox = ({
   item,
@@ -9,23 +9,21 @@ const ScheduleCheckBox = ({
 }) => {
   const [value, setvalue] = useState(item);
   const onChange = (e) => {
-    setvalue(value === 1 ? 0 : 1);
+    let val = value === 1 ? 0 : 1;
+    setvalue(val);
+    sendingChanges(val);
   };
-  const sendingChanges = (values) => {
-    isAll ? setAllValues(value) : setRow(value, Objkey);
+  const sendingChanges = (val) => {
+    isAll ? setAllValues(val) : setRow(val, Objkey);
   };
-  useEffect(() => {
-    sendingChanges();
-  }, [value]);
-
   return (
     <input
       id={Objkey}
       value={value}
       onChange={onChange}
-      defaultChecked={value!=0 &&'checked'}
+      defaultChecked={value != 0 && "checked"}
       type="checkbox"
-      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+      className={`w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 ${value===2 && 'bg-orange-400'}`}
     />
   );
 };
