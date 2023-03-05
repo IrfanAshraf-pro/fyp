@@ -23,7 +23,12 @@ const ScheduleCheckBox = ({
       onChange={onChange}
       defaultChecked={value != 0 && "checked"}
       type="checkbox"
-      className={`w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 ${value===2 && 'bg-orange-400'}`}
+      // className={`${
+      //   (value === 1) | (value === 0)
+      //     ? "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+      //     : value===2 ?'':''
+      // }`}
+      className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500'
     />
   );
 };
