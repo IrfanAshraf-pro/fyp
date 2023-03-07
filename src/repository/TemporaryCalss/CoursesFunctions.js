@@ -30,8 +30,8 @@ const GetAllEnrolledCourses = async (role, email) => {
         return data
     }
 }
-const EnrollingCourse=async(role,email,courseid)=>{
-    console.log(`role is ${role} email is ${email} course id is ${courseid}`);
+const EnrollingCourse=async(role,email,courseid,coursegrade='')=>{
+    console.log(`role is ${role} email is ${email} course id is ${courseid} and course grade is ${coursegrade}`);
     if (role === 'Student') {
         console.log('enrolling student course');
         const url = `${baseURl}${funcCallStudentEnlist}?semail=${email}&cid=${courseid}`
@@ -41,8 +41,8 @@ const EnrollingCourse=async(role,email,courseid)=>{
         return data
     } else {
         console.log('enrolling tutor course');
-        const url = `${baseURl}${funcCallTutorEnlist}?email=${email}&cid=${courseid}`
-        const response = await axios.get(url)
+        const url = `${baseURl}${funcCallTutorEnlist}?email=${email}&cid=${courseid}&grade=${coursegrade}`
+        const response = await axios.post(url)
         const data = response.data
         return data
     }
