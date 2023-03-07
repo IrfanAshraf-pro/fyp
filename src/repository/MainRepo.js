@@ -1,1 +1,0 @@
-export const BASEURL='http://localhost/New_HouseOfTutors_API/api/student'

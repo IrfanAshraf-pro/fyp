@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ScheduleRow from "./ScheduleRow";
 import { JoiningSchedule, SplitingSchedule } from "../utils/ScheduleFunctions";
@@ -114,10 +114,11 @@ const ScheduleComponent = () => {
   //   );
   //   //chaning the state
   // }, [schedules])
-  const checkingIfAllTrue=(schedulee)=>{
-    console.log(schedulee);
-    let sc=schedulee.schedule
-  }
+
+
+  // const checkingIfAllTrue=(schedulee)=>{
+  //   console.log(schedulee);
+  // }
   const slots = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   return (
     <div className="flex p-2 mt-2 rounded-lg bg-main" >
