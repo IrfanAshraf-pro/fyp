@@ -19,8 +19,8 @@ const Login = () => {
     const response = await LoginUser(values.email, values.password)
     console.log('response is ,', response);
     if (typeof (response) === "object") {
-      dispatch(setRole({ item: "Student" }));
-      dispatch(setUser({user:response}))
+      dispatch(setRole({ item: response.Role }));
+      dispatch(setUser({user:response.data}))
       navigate("/dashboard");
     }else{
       setResError(response)

@@ -16,10 +16,9 @@ const SignUp = () => {
   const [resError, setResError] = useState(false)
   const navigate = useNavigate();
   const handleSignup = async () => {
-    console.log('about to send response',values);
+    console.log('about to send response', values);
     const response = await SignupUser(values)
-    console.log('response is ,', response);
-    if (response === "Signed up successfully") {
+    if (response.localeCompare('Signed up successfully')) {
       navigate("/");
     } else {
       setResError(response)
@@ -31,7 +30,7 @@ const SignUp = () => {
     errors,
     handleChange,
     handleSubmit
-  } = useSignUpForm(handleSignup, validateSignUp,tutor)
+  } = useSignUpForm(handleSignup, validateSignUp, tutor)
 
 
   function handleMaleCheck() {
@@ -141,20 +140,20 @@ const SignUp = () => {
               {
                 !tutor && (
                   <Input
-                type="number"
-                name="fathercnic"
-                id="fathercnic"
-                required
-                className={`px-2 py-2 mb-3 login__form__input ${errors.fathercnic && 'border-red-400'} w-100`}
-                placeholder="Please Enter YOur Father CNIC"
-                onChange={handleChange}
-                value={values.fathercnic || ''}
-              ></Input>
-              )}
+                    type="number"
+                    name="fathercnic"
+                    id="fathercnic"
+                    required
+                    className={`px-2 py-2 mb-3 login__form__input ${errors.fathercnic && 'border-red-400'} w-100`}
+                    placeholder="Please Enter YOur Father CNIC"
+                    onChange={handleChange}
+                    value={values.fathercnic || ''}
+                  ></Input>
+                )}
               {!tutor && errors.fathercnic && (
                 <p className="text-red-400  text-md">{errors.fathercnic}</p>
               )}
-                
+
               <Input
                 type="password"
                 required

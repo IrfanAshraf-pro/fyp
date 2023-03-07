@@ -1,7 +1,7 @@
 // chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security
 import axios from 'axios'
 const baseURl='http://localhost/HouseOfTutors_API/Api/'
-const funcCall='student/StudentLogin'
+const funcCall='Login/Login'
 
 const LoginUser=async(email,password)=>{
     console.log('inside login functipon');
