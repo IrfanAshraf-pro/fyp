@@ -8,6 +8,7 @@ import useSignUpForm from '../CustomHooks/SignUp/useSignUpForm'
 import validateSignUp from "../CustomHooks/SignUp/SignUpFormValidation";
 import { SignupUser } from "../../repository/TemporaryCalss/SignUpFunctions";
 
+
 const SignUp = () => {
   const [maleChecked, setMaleChecked] = useState(true);
   const [femaleChecked, setFemaleChecked] = useState(false);
@@ -18,7 +19,8 @@ const SignUp = () => {
   const handleSignup = async () => {
     console.log('about to send response', values);
     const response = await SignupUser(values)
-    if (response.localeCompare('Signed up successfully')) {
+    console.log(response.localeCompare("Signed up successfully"));
+    if (response.localeCompare("Signed up successfully")) {
       navigate("/");
     } else {
       setResError(response)
