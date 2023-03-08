@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ScheduleRow from "./ScheduleRow";
 import { JoiningSchedule, SplitingSchedule } from "../utils/ScheduleFunctions";
@@ -6,7 +6,8 @@ import { setSchedule } from "../../app/Slices/ScheduleSlice";
 
 const ScheduleComponent = () => {
   const schedules = useSelector((state) => state.schedule);
-  console.log('schedules is ', schedules);
+  const isScheduleUpdate=schedules.isScheduleUpdated
+  // console.log('schedules is ', schedules);
   const dispatch = useDispatch()
   const [schedule, setSchedulee] = useState(
     SplitingSchedule(schedules.schedule)
@@ -83,8 +84,9 @@ const ScheduleComponent = () => {
     const newSchedule = schedule.map((item) => {
       return item.row === schedules.row ? schedules : item;
     });
-    console.log('updating state schedule is ', newSchedule);
+    // console.log('updating state schedule is ', newSchedule);
     setSchedulee(newSchedule)
+
     // const newScheduleCombined = JoiningSchedule(newSchedule)
     // console.log('new Schedule is ',newSchedule);
     // console.log('after joining schedule is ',newScheduleCombined);
@@ -96,11 +98,18 @@ const ScheduleComponent = () => {
     // combiningSchedule()
   };
   const changeScheduleInstore = () => {
+    console.log('inside update schedule in store');
     const newScheduleCombined = JoiningSchedule(schedule)
     console.log('combined schedule is ', newScheduleCombined);
     dispatch(setSchedule({ schedule: newScheduleCombined }))
   }
-
+  const checkingIsScheduleUpdated=()=>{
+      console.log('inside if checking isscheduleUpdate',isScheduleUpdate);
+      changeScheduleInstore()
+  }
+  useEffect(()=>{
+    checkingIsScheduleUpdated()
+  },[isScheduleUpdate])
   // const combiningSchedule = () => {
   //   console.log('inside combining schedule', schedule);
   //   const newSchedule = JoiningSchedule(schedule)
@@ -129,7 +138,6 @@ const ScheduleComponent = () => {
   const slots = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   return (
     <>
-      <button onClick={changeScheduleInstore}>update</button>
 
       <div className="flex p-2 mt-2 rounded-lg bg-main" >
         <div className="w-[25%] pl-1 pt-14  rounded-tl-lg lg:pt-[60px]" style={{ height: '100px' }}>

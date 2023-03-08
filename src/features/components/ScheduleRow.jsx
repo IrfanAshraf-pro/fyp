@@ -13,7 +13,7 @@ const ScheduleRow = ({ schedule, handleScheduleUpdate }) => {
     }
     setAll(all === "0" ? "1" : "0");
     setSrow({ ...srow, schedule: ssrow });
-    console.log('setting full row',ssrow);
+    // console.log('setting full row',ssrow);
   };
   const setRow = (value, key) => {
     let row = srow;
@@ -24,7 +24,7 @@ const ScheduleRow = ({ schedule, handleScheduleUpdate }) => {
       }
     }
     setSrow({ ...srow, schedule: ssrow });
-    console.log('setting single item is ',ssrow);
+    // console.log('setting single item is ',ssrow);
   };
   const setSchedule = (schedulee) => {
     handleScheduleUpdate(schedulee);
