@@ -10,8 +10,6 @@ import useForm from "../CustomHooks/Login/useForm";
 import validate from "../CustomHooks/Login/LoginFormValidationRules";
 import { LoginUser } from "../../repository/TemporaryCalss/LoginFunctions";
 
-
-
 const Login = () => {
   const [resError,setResError]=useState(false)
   const navigate = useNavigate();
@@ -22,7 +20,7 @@ const Login = () => {
     console.log('response is ,', response);
     if (typeof (response) === "object") {
       dispatch(setRole({ item: response.Role }));
-      dispatch(setUser({user:response.data}));
+      dispatch(setUser({user:response.data}))
       navigate("/dashboard");
     }else{
       setResError(response)
