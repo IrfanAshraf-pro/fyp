@@ -1,5 +1,7 @@
 const SplitingSchedule = (schedule) => {
+  // console.log('schedule in splliting is ',schedule);
   const scheduleCharArray = [...schedule];
+  // console.log('schedule char array is',scheduleCharArray);
   const scheduleObj = [
     {
       row: 1,
@@ -194,6 +196,7 @@ const SplitingSchedule = (schedule) => {
       },
     },
   ];
+  // console.log('return split is ',scheduleObj);
   return scheduleObj;
 };
 const JoiningSchedule=(schedule)=>{
