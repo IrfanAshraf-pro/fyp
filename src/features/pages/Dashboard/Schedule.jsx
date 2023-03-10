@@ -19,7 +19,7 @@ const Schedule = () => {
   },[isSchedule])
   return (
     <div>
-      <PageHeader icon="update" onClick={ToggleIsScheduleUpdated}>Schedule</PageHeader>
+      <PageHeader icon="✔" onClick={ToggleIsScheduleUpdated}>Schedule</PageHeader>
       <div className="mx-auto w-[95%]  sm:w-[85%] " style={{ height: '100px' }}>
         <ScheduleComponent />
       </div>

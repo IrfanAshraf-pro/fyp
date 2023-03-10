@@ -29,7 +29,7 @@ const Dashboard = () => {
         <Drawer />
       </div>
       <div className="grow lg:w-8/12">
-        <Navbar />
+        {/* <Navbar /> */}
         <Outlet />
       </div>
     </div>
