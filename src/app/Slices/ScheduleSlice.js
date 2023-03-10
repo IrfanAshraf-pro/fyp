@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   schedule:
     "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-  isScheduleUpdated:false
 };
 
 const ScheduleSlice = createSlice({
@@ -15,12 +14,8 @@ const ScheduleSlice = createSlice({
       state.schedule = action.payload.schedule;
       console.log('after setting state is',state.schedule);
     },
-    setIsScheduleUpdate:(state,action)=>{
-      console.log('setting is schedule updated');
-      state.isScheduleUpdated=action.payload.isScheduleUpdated
-    }
   },
 });
 
 export default ScheduleSlice.reducer;
-export const { setSchedule,setIsScheduleUpdate } = ScheduleSlice.actions;
+export const { setSchedule } = ScheduleSlice.actions;

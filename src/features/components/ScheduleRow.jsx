@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ScheduleCheckBox from "./ScheduleCheckBox";
 
-const ScheduleRow = ({ schedule, handleScheduleUpdate }) => {
+const ScheduleRow = ({ schedule, setSchedule }) => {
   const [srow, setSrow] = useState(schedule);
   const [all, setAll] = useState("0");
 
@@ -13,7 +13,7 @@ const ScheduleRow = ({ schedule, handleScheduleUpdate }) => {
     }
     setAll(all === "0" ? "1" : "0");
     setSrow({ ...srow, schedule: ssrow });
-    // console.log('setting full row',ssrow);
+    console.log('setting full row',ssrow);
   };
   const setRow = (value, key) => {
     let row = srow;
@@ -24,13 +24,13 @@ const ScheduleRow = ({ schedule, handleScheduleUpdate }) => {
       }
     }
     setSrow({ ...srow, schedule: ssrow });
-    // console.log('setting single item is ',ssrow);
+    console.log('setting single item is ',ssrow);
   };
-  const setSchedule = (schedulee) => {
-    handleScheduleUpdate(schedulee);
+  const setSchedulee = (schedulee) => {
+    setSchedule(schedulee);
   };
   useEffect(() => {
-    setSchedule(srow)
+    setSchedulee(srow)
     console.log('inside useEffect of row srow or each row');
   }, [srow]);
 

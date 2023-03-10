@@ -6,7 +6,6 @@ const funcCallStudent = 'student/GetStudentEnlistedCourses'
 const funcCallTutor = 'tutor/GetTutorEnlistedCourses'
 const funcCallTutorEnlist='tutor/TutorCourseEnlist'
 const funcCallStudentEnlist='student/StudentCourseEnlist'
-const funcCallStudentFindTutor='student/FindTutor'
 const GetAllCourses = async () => {
     console.log('getting all courses');
     const url = `${baseURl}${funcCall}`
@@ -48,18 +47,8 @@ const EnrollingCourse=async(role,email,courseid,coursegrade='')=>{
         return data
     }
 }
-const FindTutor=async(email,courseid)=>{
-    console.log('inside Findd Tutor');
-    const url = `${baseURl}${funcCallStudentFindTutor}?semail=${email}&cid=${courseid}`
-    console.log('find tutor url is ',url);
-    const response = await axios.get(url)
-    const data = response.data
-    console.log('Find Tutors is ',data);
-    return data
-}
 export {
     GetAllCourses,
     GetAllEnrolledCourses,
-    EnrollingCourse,
-    FindTutor
+    EnrollingCourse
 }

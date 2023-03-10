@@ -21,7 +21,7 @@ const Drawer = () => {
   return (
     <>
       <div
-        className={`sidebar fixed top-0 bottom-0  duration-100 mt-[65px] lg:mt-0
+        className={`sidebar fixed top-0 bottom-0  duration-100 mt-[50px] lg:mt-0
     p-2 w-[300px] overflow-y-auto text-center bg-gray-900 shadow h-screen lg:left-0 ${!isOpen ? "left-[-300px] sidebar_opacity " : ""
           }`}
       >
