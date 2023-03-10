@@ -21,7 +21,7 @@ const ScheduleCheckBox = ({
       id={Objkey}
       value={value}
       onChange={onChange}
-      defaultChecked={value !== '0' && 'checked'}
+      defaultChecked={value != 0 && "checked"}
       type="checkbox"
       // className={`${
       //   (value === 1) | (value === 0)
