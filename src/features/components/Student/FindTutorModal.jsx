@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux'
 //Api call
 
 import Rodal from 'rodal';
@@ -8,7 +7,7 @@ import Rodal from 'rodal';
 import 'rodal/lib/rodal.css';
 import FindTutorRow from './FindTutorRow';
 
-function FindTutorModal({ modal, toggle,tutorsList }) {
+function FindTutorModal({ modal, toggle,tutorsList,course }) {
     console.log('tutors list is ',tutorsList);
   return (
     <div>
@@ -16,8 +15,8 @@ function FindTutorModal({ modal, toggle,tutorsList }) {
         <div className='text-xl'>Find Tutor</div>
         <div className='flex flex-col items-center justify-center gap-2 pt-3'>
            {
-            tutorsList.map((tutor)=>(
-                <FindTutorRow tutor={tutor}/>
+            tutorsList.map((tutor,index)=>(
+                <FindTutorRow tutor={tutor} key={index} course={course}/>
             ))
            }
         </div>

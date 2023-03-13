@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getSchedule } from "../../repository/TemporaryCalss/ScheduleFunctions";
 import { scheduleString } from "../../repository/TemporaryCalss/Types";
 import { setSchedule } from "../../app/Slices/ScheduleSlice";
-
-
+import { setNotifications} from '../../app/Slices/NotificationSlice'
+import {GetStudentRequests} from '../../repository/TemporaryCalss/NotificationFunction'
 const Dashboard = () => {
   const { role, user } = useSelector(state => state.auth)
   const dispatch = useDispatch()
@@ -20,8 +20,20 @@ const Dashboard = () => {
       dispatch(setSchedule({ schedule: response }))
     }
   }
+  
+  const TutorNotification=async()=>{
+    console.log('callign notification');
+    const response=await GetStudentRequests(user.email)
+    dispatch(setNotifications({notifications:response}))
+  }
+  const gettingTutorNotifications=()=>{
+    setTimeout(TutorNotification, 10000);
+  }
   useEffect(() => {
     getScheduleDB()
+    if(role==='Tutor'){
+      gettingTutorNotifications()
+    }
   }, [])
   return (
     <div className="lg:flex lg:flex-row ">

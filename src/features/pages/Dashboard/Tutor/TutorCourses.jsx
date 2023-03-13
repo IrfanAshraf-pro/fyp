@@ -5,12 +5,26 @@ import PageHeader from '../../../components/PageHeader'
 import TutorCoursesRow from '../../../components/Tutor/TutorCoursesRow'
 import TutorCourseModal from '../../../components/Tutor/TutorCourseModal'
 import { GetAllCourses, GetAllEnrolledCourses } from '../../../../repository/TemporaryCalss/CoursesFunctions'
+import Pagination from '../../../components/Pagination'
 
 const TutorCourses = () => {
   const [modal, setModal] = useState(false);
   const [isUpdated, setIsUpdated] = useState(false);
   const [courses, setCourses] = useState([]);
   const [enrolledCourses, setEnrolledCourses] = useState([]);
+
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage] = useState(5);
+    const [resetPaginate, setResetpaginate] = useState(false);
+     const indexOfLastItem = currentPage * itemsPerPage;
+     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+     const currentItems = enrolledCourses.slice(indexOfFirstItem, indexOfLastItem);
+     const paginate = (page) => {
+       setCurrentPage(page);
+       setResetpaginate(false);
+     };
+
 
   const { role, user } = useSelector(state => state.auth)
   const gettingAllCoursesData = async () => {
@@ -44,17 +58,25 @@ const TutorCourses = () => {
   return (
     <div>
         <PageHeader icon={'+'} onClick={toggle}>Courses</PageHeader>
-        <div className='flex items-center justify-center'>
+        <div className='flex flex-col items-center justify-center'>
           <div>
-            <TutorCourseModal modal={modal} toggle={toggle} setIsUpdated={setIsUpdated} courses={courses.slice(1, 7)}/>
+            <TutorCourseModal modal={modal} toggle={toggle} setIsUpdated={setIsUpdated} courses={courses}/>
           </div>
         <div className='flex flex-col w-11/12 gap-2 p-2 mt-8 md:w-8/12'>
         {
-            enrolledCourses.map(course => (
+            currentItems.map(course => (
               <TutorCoursesRow key={course.courseid} course={course} />
             ))
           }
         </div>
+        <div className="mt-8 mx-auto">
+             <Pagination
+              itemsPerPage={itemsPerPage}
+              totalItems={enrolledCourses.length}
+              paginate={paginate}
+              resetPaginate={resetPaginate}
+            />
+            </div>
         </div>
     </div>
   )

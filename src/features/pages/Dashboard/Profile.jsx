@@ -30,16 +30,16 @@ const Profile = () => {
           <img
             src={image}
             alt="user avatar"
-            className="h-[192px] w-[192px] rounded-circle ring-2 ring-blue-300 imgnegative"
+            className="h-[192px]  w-[192px] bg-auto rounded-circle ring-2 ring-blue-300 imgnegative"
           />
         </div>
       </div>
       <div className="relative p-2">
-        <label htmlFor="pickProfileImage"  className="absolute p-2 -right-24 -top-20 btn btn-square btn-ghost">
+        <label htmlFor="pickProfileImage"  className="absolute p-2 -right-24 cursor-pointer -top-20 bg-blue-500 rounded-full hover:bg-blue-700">
             <img
-              src={EditBlack}
+              src={Edit}
               alt="edit icon"
-              className="inline-block w-6 h-6 rounded-sm stroke-current bg-slate-300"
+              className="inline-block w-6 h-6 rounded-sm stroke-current"
             />
             <input
               type="file"
@@ -51,9 +51,9 @@ const Profile = () => {
       </div>
       {/* Avatar name and email div */}
       <div className="flex items-center justify-between w-11/12 py-2 px-4 bg-gray-700 rounded-lg sm:w-3/4 md:w-2/4">
-        <div className="">
-          <p className="text-lg text-white uppercase">{user.name}</p>
-          <p className="text-sm text-white ">{user.email}</p>
+        <div className="flex flex-col justify-center">
+          <span className="text-lg text-white uppercase">{user.name}</span>
+          <span className="text-sm text-white ">{user.email}</span>
         </div>
         <button className="btn btn-square ">
           <img

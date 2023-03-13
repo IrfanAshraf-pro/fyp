@@ -18,11 +18,11 @@ const CoursesRow = ({course}) => {
   return (
     <>
     <div className=''>
-          <FindTutorModal modal={modal} toggle={toggle} tutorsList={tutorsList}/>
+          <FindTutorModal modal={modal} toggle={toggle} course={course} tutorsList={tutorsList}/>
         </div>
-    <div className='p-2 px-5 bg-gray-400 d-flex justify-content-between align-items-center rounded-4'>
-        <p className='-mb-[1px] text-xl text-white'>{course.coursename}</p>
-        <button className="btn btn-primary rounded-4 " onClick={onClick}>
+    <div className='p-2 px-3 md:px-5 bg-slate-500 d-flex justify-content-between align-items-center rounded-3'>
+        <p className='-mb-[1px] text-base md:text-xl text-white'>{course.coursename}</p>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white text-base md:text-xl py-1 px-3 hover:shadow rounded-2 " onClick={onClick}>
             Find Tutor
         </button>
     </div>

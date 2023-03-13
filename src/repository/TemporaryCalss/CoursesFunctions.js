@@ -7,6 +7,7 @@ const funcCallTutor = 'tutor/GetTutorEnlistedCourses'
 const funcCallTutorEnlist='tutor/TutorCourseEnlist'
 const funcCallStudentEnlist='student/StudentCourseEnlist'
 const funcCallStudentFindTutor='student/FindTutor'
+const funcCallRequestTutor='student/SendRequestToTutor'
 const GetAllCourses = async () => {
     console.log('getting all courses');
     const url = `${baseURl}${funcCall}`
@@ -57,9 +58,18 @@ const FindTutor=async(email,courseid)=>{
     console.log('Find Tutors is ',data);
     return data
 }
+const RequestingTutor=async(semail,temail,cid,slot)=>{
+    const url=`${baseURl}${funcCallRequestTutor}?semail=${semail}&temail=${temail}&cid=${cid}&slot=${slot}`
+    console.log('Requesting tutor url is ',url);
+    const response = await axios.post(url)
+    const data = response.data
+    console.log('response is ',data);
+    return data
+}
 export {
     GetAllCourses,
     GetAllEnrolledCourses,
     EnrollingCourse,
-    FindTutor
+    FindTutor,
+    RequestingTutor
 }

@@ -140,25 +140,25 @@ const ScheduleComponent = () => {
     <>
 
       <div className="flex p-2 mt-2 rounded-lg bg-main" >
-        <div className="w-[25%] pl-1 pt-14  rounded-tl-lg lg:pt-[60px]" style={{ height: '100px' }}>
+        <div className="w-[25%] pl-1 pt-14  rounded-tl-lg lg:pt-[50px]" style={{ height: '100px' }}>
           {timeslots.map((slot, index) => (
-            <div className="flex text-white bg-main " style={{ height: '28px' }} key={index}>
-              <p className="text-base xl:w-7/12 lg:text-xl" style={{ fontSize: '14px' }}>{slot.time}</p>
-              <p className="text-base xl:w-5/12 lg:text-xl" style={{ fontSize: '14px' }}>{slot.stamp}</p>
+            <div className="flex text-white bg-main pt-2 md:pt-0" style={{ height: '28px' }} key={index}>
+              <p className="text-xs xl:w-7/12 md:text-sm lg:text-base" >{slot.time}</p>
+              <p className="text-xs xl:w-5/12 md:text-sm lg:text-base" >{slot.stamp}</p>
             </div>
           ))}
         </div>
-        <div className="w-9/12 bg-gray-400 rounded-tr-lg">
+        <div className="w-9/12  rounded-tr-lg">
           <div className="flex justify-between px-1 py-2 rounded-tr-lg align-center bg-main">
             {days.map((day, index) => (
               <p key={index}
-                className={`text-base font-bold text-white w-[10%] lg:text-xl `}
+                className={`text-xs md:text-sm lg:text-base font-bold text-white w-[10%]  `}
               >
                 {day}
               </p>
             ))}
           </div>
-          <div className="flex flex-col px-2 gap-[4.2px] lg:gap-[4.1px]">
+          <div className="flex flex-col px-2 bg-gray-400 rounded-2 gap-[4.2px] lg:gap-[4.1px]">
             {slots.map((slot, index) => (
               <div key={index}>
                 <ScheduleRow
